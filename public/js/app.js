@@ -1,5 +1,3 @@
-console.log('Client side js file');
-
 const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
 const msgOne = document.querySelector('#message-1');
@@ -13,7 +11,7 @@ weatherForm.addEventListener('submit', (e) => {
     msgOne.textContent = 'Loading...';
     msgTwo.textContent = '';
 
-    fetch(`http://localhost:3000/weather?address=${location}`).then((response) => {
+    fetch(`/weather?address=${location}`).then((response) => {
         response.json().then((data) => {
             if(data.error){
                 return msgOne.textContent = 'Unable to find location'
